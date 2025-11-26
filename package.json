@@ -25,21 +25,11 @@
     "electron": "^39.2.3"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "update-electron-app": "^3.1.1"
   },
-  "config": {
-    "forge": {
-      "publishers": [
-        {
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "jaskerx",
-              "name": "electron-demo"
-            }
-          }
-        }
-      ]
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaskerx/electron-demo.git"
   }
 }
