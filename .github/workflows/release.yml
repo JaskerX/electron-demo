@@ -7,6 +7,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   publish_win:
     runs-on: windows-latest
@@ -25,21 +28,16 @@ jobs:
   publish_linux:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2       
-    - uses: actions/setup-node@master
-      with:
-        node-version: 22
-    - name: install dependencies
-      run: npm install
-    - name: Download All Artifacts
-      uses: actions/download-artifact@master
-      with:
-        path: out
-        pattern: build-artifacts-*
-    - name: publish
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@master
+        with:
+          node-version: 22
+      - name: install dependencies
+        run: npm install
+      - name: publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run publish
 
   publish_mac:
     runs-on: macos-latest
