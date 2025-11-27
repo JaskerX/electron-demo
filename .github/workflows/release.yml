@@ -26,6 +26,8 @@ jobs:
       run: npm run publish
       
   publish_linux:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
