@@ -7,9 +7,6 @@ on:
     tags:
       - 'v*'
 
-permissions:
-  contents: write
-
 jobs:
   publish_win:
     runs-on: windows-latest
@@ -26,8 +23,6 @@ jobs:
       run: npm run publish
       
   publish_linux:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
