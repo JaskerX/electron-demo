@@ -18,7 +18,7 @@ jobs:
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      run: npm run make
       
   publish_linux:
     runs-on: ubuntu-latest
@@ -32,7 +32,7 @@ jobs:
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      run: npm run make
 
   publish_mac:
     runs-on: macos-latest
@@ -46,4 +46,4 @@ jobs:
     - name: publish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npm run publish
+      run: npm run make
