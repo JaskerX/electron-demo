@@ -53,7 +53,9 @@ module.exports = {
         repository: {
           owner: 'jaskerx',
           name: 'electron-demo'
-        }
+        },
+        prerelease: false,
+        draft: true
       }
     }
   ]
