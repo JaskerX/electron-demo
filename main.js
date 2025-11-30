@@ -1,13 +1,4 @@
 const { app, BrowserWindow } = require('electron/main')
-const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
-
-updateElectronApp({
-  updateSource: {
-    type: UpdateSourceType.ElectronPublicUpdateService,
-    repo: "JaskerX/electron-demo"
-  },
-  notifyUser: true
-});
 
 const createWindow = () => {
   const win = new BrowserWindow({
