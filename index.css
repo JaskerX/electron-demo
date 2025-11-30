@@ -1,0 +1,23 @@
+div {
+    margin-top: 50px;
+    padding: 30px 10px 30px 10px;
+    border: 1px solid gray;
+    background-color: rgb(106, 165, 65);
+    display: flex;
+    justify-content: center;
+}
+
+div:first-child {
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    background-color: rgb(173, 250, 118);
+    width: 30px;
+}
+
+span {
+    margin-right: 10px;
+    margin-left: 1px;
+}

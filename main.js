@@ -1,7 +1,13 @@
 const { app, BrowserWindow } = require('electron/main')
-const { updateElectronApp } = require('update-electron-app');
+const { updateElectronApp, UpdateSourceType } = require('update-electron-app');
 
-updateElectronApp();
+updateElectronApp({
+  updateSource: {
+    type: UpdateSourceType.ElectronPublicUpdateService,
+    repo: "JaskerX/electron-demo"
+  },
+  notifyUser: true
+});
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -12,6 +18,14 @@ const createWindow = () => {
   win.loadFile('index.html')
 }
 
+// close not macOS
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
+
+// macOS exception: app running in background even without windows open
 app.whenReady().then(() => {
   createWindow()
 
@@ -20,10 +34,4 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
-})
-
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
 })

@@ -2,7 +2,6 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
@@ -11,10 +10,28 @@
       http-equiv="X-Content-Security-Policy"
       content="default-src 'self'; script-src 'self'"
     />
-    <title>test3Hello from Electron renderer!</title>
+    <link rel="stylesheet" href="index.css">
+    <title>Electron Demo: Timer</title>
   </head>
+
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <div>
+      <h1>Timer</h1>
+      <p>00:00:00</p>
+    </div>
+
+    <div>
+      <button>Start</button>
+      <button>Pause</button>
+    </div>
+
+    <div>
+      <input type="number">
+      <span>h</span>
+      <input type="number">
+      <span>m</span>
+      <input type="number">
+      <span>s</span>
+    </div>
   </body>
 </html> 
