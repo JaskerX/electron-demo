@@ -43,12 +43,9 @@ const createWindow = () => {
 }
 
 app.whenReady().then(() => {
-  const timerHandler = new TimerHandler();
-  ipcMain.handle("reset-timer", (_event, seconds) => timerHandler.reset(seconds));
-  ipcMain.handle("start-timer", () => timerHandler.start(window));
-  ipcMain.handle("pause-timer", () => timerHandler.pause());
+  setupIpcMain();
 
-  createWindow()
+  createWindow();
 
   // macOS exception: app running in background even without windows open
   app.on('activate', () => {
@@ -64,3 +61,10 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+const setupIpcMain = () => {
+  const timerHandler = new TimerHandler();
+  ipcMain.handle("reset-timer", (_event, seconds) => timerHandler.reset(seconds));
+  ipcMain.handle("start-timer", () => timerHandler.start(window));
+  ipcMain.handle("pause-timer", () => timerHandler.pause());
+}
