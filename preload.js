@@ -1,10 +1,8 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
+const { contextBridge, ipcRenderer } = require("electron");
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
-  }
+contextBridge.exposeInMainWorld("electron", {
+  resetTimer: (seconds) => ipcRenderer.invoke("reset-timer", seconds),
+  startTimer: () => ipcRenderer.invoke("start-timer"),
+  pauseTimer: () => ipcRenderer.invoke("pause-timer"),
+  onUpdateTimer: (callback) => ipcRenderer.on("update-timer", (_event, seconds) => callback(seconds))
 })

@@ -17,21 +17,30 @@
   <body>
     <div>
       <h1>Timer</h1>
-      <p>00:00:00</p>
+      <p id="timerDisplay">00:00:00</p>
     </div>
 
     <div>
-      <button>Start</button>
-      <button>Pause</button>
+      <button id="start">
+        Start
+      </button>
+      <button id="pause">
+        Pause
+      </button>
+      <button id="reset">
+        Zurücksetzen
+      </button>
     </div>
 
     <div>
-      <input type="number">
+      <input type="number" value="0" id="inpH">
       <span>h</span>
-      <input type="number">
+      <input type="number" value="0" id="inpM">
       <span>m</span>
-      <input type="number">
+      <input type="number" value="0" id="inpS">
       <span>s</span>
     </div>
   </body>
+
+  <script src="renderer.js"></script>
 </html> 

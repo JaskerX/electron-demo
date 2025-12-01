@@ -2,7 +2,7 @@ div {
     margin-top: 50px;
     padding: 30px 10px 30px 10px;
     border: 1px solid gray;
-    background-color: rgb(106, 165, 65);
+    background-color: rgb(129, 198, 80);
     display: flex;
     justify-content: center;
 }
@@ -14,10 +14,14 @@ div:first-child {
 
 input {
     background-color: rgb(173, 250, 118);
-    width: 30px;
+    width: 40px;
 }
 
 span {
     margin-right: 10px;
     margin-left: 1px;
+}
+
+button {
+    cursor: pointer;
 }
